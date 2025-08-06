@@ -1,43 +1,61 @@
+baseURL = "https://lingming.art/" 
+languageCode = "zh-cn"
+title = "lingming的漂流瓶"
+theme = "papermod"
 
-  baseURL = "https://lingming.art/" # 最终要部署的域名  
-languageCode = "zh-cn" # 语言  
-title = "lingming的漂流瓶"  
-theme = "papermod"  
+# --- 核心修改区域 ---
+[params]
+    layout = "profile"
+    mainSections = ["墙外", "神殿"]
+    ShowPostNavLinks = true
+    ShowBreadCrumbs = true
+    ShowReadingTime = true
+    ShowShareButtons = true
+    ShowCodeCopyButtons = true
 
-[params]  # 启用搜索功能  
-    ShowPostNavLinks = true  
-    ShowBreadCrumbs = true  
-    ShowReadingTime = true  
-    ShowShareButtons = true  
-    ShowCodeCopyButtons = true  
+    [params.profileMode]
+    enabled = true
+    title = "LingMing"
+    subtitle = "干饭 / 睡觉 / 瑟瑟"
+    imageUrl = "" # 未来可以放你的头像链接
+    imageWidth = 120
+    imageHeight = 120
+    
+    # --- 按钮逻辑修正 ---
+    [[params.profileMode.buttons]]
+    name = "墙外"
+    url = "/墙外/" # 直接链接到你的内容区
 
-    [params.homeInfoParams]  
-    Title = "你好，我是lingming"  
-    Content = "this is Introduction"  
+    [[params.profileMode.buttons]]
+    name = "神殿"
+    url = "/神殿/" # 直接链接到你的内容区
 
-    [params.assets]  
-    # 禁用主题自带的jquery，如果需要可开启  
-    disableFingerprinting = true  
+    [[params.profileMode.buttons]]
+    name = "归档"
+    url = "/archives/" # 链接到我们刚刚创建的归档页
 
-[menu]  
-    [[menu.main]]  
-    identifier = "archives"  
-    name = "归档"  
-    url = "/archives/"  
-    weight = 10  
+    [[params.profileMode.buttons]]
+    name = "标签"
+    url = "/tags/" # 链接到我们刚刚创建的标签页
 
-    [[menu.main]]  
-    identifier = "search"  
-    name = "搜索"  
-    url = "/search/"  
-    weight = 20  
+[menu]
+    [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 10
 
-    [[menu.main]]  
-    identifier = "tags"  
-    name = "标签"  
-    url = "/tags/"  
-    weight = 30  
-    # 信任在Markdown中使用的原生HTML
+    [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 20
+
+    [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 30
 
 [markup.goldmark.renderer]
   unsafe = true
