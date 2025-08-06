@@ -1,0 +1,43 @@
+
+  baseURL = "https://lingming.art/" # 最终要部署的域名  
+languageCode = "zh-cn" # 语言  
+title = "lingming的漂流瓶"  
+theme = "papermod"  
+
+[params]  # 启用搜索功能  
+    ShowPostNavLinks = true  
+    ShowBreadCrumbs = true  
+    ShowReadingTime = true  
+    ShowShareButtons = true  
+    ShowCodeCopyButtons = true  
+
+    [params.homeInfoParams]  
+    Title = "你好，我是lingming"  
+    Content = "this is Introduction"  
+
+    [params.assets]  
+    # 禁用主题自带的jquery，如果需要可开启  
+    disableFingerprinting = true  
+
+[menu]  
+    [[menu.main]]  
+    identifier = "archives"  
+    name = "归档"  
+    url = "/archives/"  
+    weight = 10  
+
+    [[menu.main]]  
+    identifier = "search"  
+    name = "搜索"  
+    url = "/search/"  
+    weight = 20  
+
+    [[menu.main]]  
+    identifier = "tags"  
+    name = "标签"  
+    url = "/tags/"  
+    weight = 30  
+    # 信任在Markdown中使用的原生HTML
+
+[markup.goldmark.renderer]
+  unsafe = true
