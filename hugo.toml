@@ -1,7 +1,7 @@
 baseURL = "https://lingming.art/" 
 languageCode = "zh-cn"
 title = "lingming的漂流瓶"
-theme = "papermod"
+theme = "PaperMod"
 
 # --- 核心修改区域 ---
 [params]
