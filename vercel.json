@@ -1,4 +1,4 @@
 {
   "installCommand": "git submodule update --init --recursive",
-  "buildCommand": "hugo --gc --minify"
+  "buildCommand": "hugo --theme=papermod --gc --minify"
 }
