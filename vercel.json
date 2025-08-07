@@ -3,9 +3,5 @@
   "env": {
     "MONGO_URI": "mongodb+srv://lingming:3MEavSJXABpdX3SV@lingming.kjeovsa.mongodb.net/?retryWrites=true&w=majority&appName=lingming"
   },
-  "functions": {
-    "api/**/*.js": {
-      "region": "hkg1"
-    }
-  }
+  "regions": ["hkg1"]
 }
