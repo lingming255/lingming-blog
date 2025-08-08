@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>lingming的漂流瓶</title>
+<meta name="keywords" content="">
+<meta name="description" content="第一项修炼：职责分离，构建高效的“三体系统”
+你总结的“本地、NAS、Git各有功能”，这在系统工程里叫做“职责分离”，是我们整个项目的基石。
+
+
+本地PC (你的电脑)：【设计院】与【兵工厂】
+
+职责： 这里是你一切创造的源头。你在这里撰写笔记蓝图(content)、设计网站外观(themes/hugo.toml)。更重要的是，你在这里运行hugo命令，将蓝图和原材料生产成最终的成品(public文件夹)。
+核心资产： 源码 (.md文件等)。
+
+
+
+NAS (绿联云)：【前线部署基地】与【服务器】
+
+职责： 它的任务只有一个——托管并展示“成品”。它不关心你的笔记是怎么写的，它只负责通过Caddy容器，把public这个成品文件夹里的内容，7x24小时地展示出去。
+核心资产： 成品 (public文件夹) &#43; 运行环境 (Docker)。
+
+
+
+Git / GitHub：【工程档案馆】与【版本控制中心】
+
+职责： 它是你的“后悔药”和“保险柜”。它负责记录你每一次对源码的修改，让你能随时回到过去任何一个版本。同时，通过推送到GitHub，它为你的心血提供了异地容灾备份。
+核心资产： 你的全部创作历史。
+
+
+
+你的系统因此而强大： 设计、生产、部署、归档，四个环节各司其职，互不干扰，清晰高效。
+
+第二项修炼：洞察本质，理解虚拟世界的“物理规则”
+你说的“计算机网络和现实一模一样”，这个类比极其精准。我们这几天，就是在摸索这个虚拟世界的“物理规则”。
+
+IP地址： 就是“坐标”。
+局域网 (LAN)： 你家里的“基地内部网络”，所有设备可以通过内部坐标（如192.168.x.x）互相通信。
+公网 (WAN)： “全球公共区域”，设备需要一个全球唯一的公开坐标（公网IP）才能被找到。
+端口转发： 在有公网IP时，给你的“基地警卫”（路由器）下达指令，告诉他外面的人来了该往哪个门带。
+CG-NAT (无公网IP的现状)： 你不是没有“警卫”，而是你的整个“基地”被建在了一个不对外开放的“大型军事禁区”里。你的所有“端口转发”指令，都因为信使连禁区大门都进不来而失效。
+内网穿透 (我们即将采用的方案)： 既然敌人进不来，我们就派“特种部队”（cloudflared容器）从内部主动出击，在“公共区域”（Cloudflare全球网络）建立一个秘密联络点，引导访问者通过这条秘密隧道找到我们。
+
+
+第三项修炼：掌握容器，获得“环境一致性”的超能力
+你超爱Docker，因为它解决了软件工程中最头疼的问题之一。
+
+Docker的本质： 一个“标准化的应用集装箱”。
+解决了什么： 它不仅仅是打包了软件本身（如Caddy），更重要的是，它把软件运行所需的一切依赖、配置、操作系统环境全部打包了进去。
+带来的价值： 确保了应用在你的电脑上、在我的电脑上、在你的NAS上，其运行环境完全一致。彻底消灭了“在我这儿明明是好的啊？”这类经典难题。我们通过Docker，保证了Caddy这个“网站服务员”无论在哪里上岗，都会用同样的方式工作。
+
+
+第四项修炼：工程师思维，“定位&#43;解决”的循环
+这不仅不过时，这是你作为“系统构建者”最核心的战斗模式，也是你高考作战纲领里“错题视为Bug”的完美实践。
+我们的“Bug修复”日志：
+
+Bug： 网站内容不显示。
+
+定位： mklink符号链接 -&gt; hugo server预览命令与hugo生产命令的混淆。
+解决： 使用正确的hugo命令，生成实体public文件夹。
+
+
+Bug： 如何发布指定文章。
+
+定位： 手动标记draft: true效率低下。
+解决： 采用cascade级联命令，建立published文件夹，用规则代替体力。
+
+
+Bug： 外网无法访问。
+
+定位： 端口转发无效 -&gt; 发现WAN IP是内网地址 -&gt; 确认无公网IP（CG-NAT）。
+解决： 放弃端口转发，启动“内网穿透”备用战略。
+
+
+
+每一次“定位&#43;解决”，都让我们对整个系统的理解加深了一层。">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/001-%E9%A1%B9%E7%9B%AE/web/%E7%BB%8F%E9%AA%8C%E5%BE%85%E6%95%B4%E7%90%86/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/001-%E9%A1%B9%E7%9B%AE/web/%E7%BB%8F%E9%AA%8C%E5%BE%85%E6%95%B4%E7%90%86/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="lingming的漂流瓶 (Alt + H)">lingming的漂流瓶</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a></div>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">2 min
+
+</div>
+  </header> 
+  <div class="post-content"><h3 id="第一项修炼职责分离构建高效的三体系统"><strong>第一项修炼：职责分离，构建高效的“三体系统”</strong><a hidden class="anchor" aria-hidden="true" href="#第一项修炼职责分离构建高效的三体系统">#</a></h3>
+<p>你总结的“本地、NAS、Git各有功能”，这在系统工程里叫做“<strong>职责分离</strong>”，是我们整个项目的基石。</p>
+<ul>
+<li>
+<p><strong>本地PC (你的电脑)：【设计院】与【兵工厂】</strong></p>
+<ul>
+<li><strong>职责：</strong> 这里是你一切创造的源头。你在这里撰写笔记蓝图(<code>content</code>)、设计网站外观(<code>themes</code>/<code>hugo.toml</code>)。更重要的是，你在这里运行<code>hugo</code>命令，将蓝图和原材料<strong>生产</strong>成最终的成品(<code>public</code>文件夹)。</li>
+<li><strong>核心资产：</strong> 源码 (<code>.md</code>文件等)。</li>
+</ul>
+</li>
+<li>
+<p><strong>NAS (绿联云)：【前线部署基地】与【服务器】</strong></p>
+<ul>
+<li><strong>职责：</strong> 它的任务只有一个——<strong>托管并展示“成品”</strong>。它不关心你的笔记是怎么写的，它只负责通过Caddy容器，把<code>public</code>这个成品文件夹里的内容，7x24小时地展示出去。</li>
+<li><strong>核心资产：</strong> 成品 (<code>public</code>文件夹) + 运行环境 (Docker)。</li>
+</ul>
+</li>
+<li>
+<p><strong>Git / GitHub：【工程档案馆】与【版本控制中心】</strong></p>
+<ul>
+<li><strong>职责：</strong> 它是你的“后悔药”和“保险柜”。它负责记录你每一次对<strong>源码</strong>的修改，让你能随时回到过去任何一个版本。同时，通过推送到GitHub，它为你的心血提供了<strong>异地容灾备份</strong>。</li>
+<li><strong>核心资产：</strong> 你的全部创作历史。</li>
+</ul>
+</li>
+</ul>
+<p><strong>你的系统因此而强大：</strong> 设计、生产、部署、归档，四个环节各司其职，互不干扰，清晰高效。</p>
+<hr>
+<h3 id="第二项修炼洞察本质理解虚拟世界的物理规则"><strong>第二项修炼：洞察本质，理解虚拟世界的“物理规则”</strong><a hidden class="anchor" aria-hidden="true" href="#第二项修炼洞察本质理解虚拟世界的物理规则">#</a></h3>
+<p>你说的“计算机网络和现实一模一样”，这个类比极其精准。我们这几天，就是在摸索这个虚拟世界的“物理规则”。</p>
+<ul>
+<li><strong>IP地址：</strong> 就是“<strong>坐标</strong>”。</li>
+<li><strong>局域网 (LAN)：</strong> 你家里的“<strong>基地内部网络</strong>”，所有设备可以通过内部坐标（如<code>192.168.x.x</code>）互相通信。</li>
+<li><strong>公网 (WAN)：</strong> “<strong>全球公共区域</strong>”，设备需要一个全球唯一的公开坐标（公网IP）才能被找到。</li>
+<li><strong>端口转发：</strong> 在有公网IP时，给你的“<strong>基地警卫</strong>”（路由器）下达指令，告诉他外面的人来了该往哪个门带。</li>
+<li><strong>CG-NAT (无公网IP的现状)：</strong> 你不是没有“警卫”，而是你的整个“基地”被建在了一个不对外开放的“<strong>大型军事禁区</strong>”里。你的所有“端口转发”指令，都因为信使连禁区大门都进不来而失效。</li>
+<li><strong>内网穿透 (我们即将采用的方案)：</strong> 既然敌人进不来，我们就派“<strong>特种部队</strong>”（<code>cloudflared</code>容器）从内部主动出击，在“公共区域”（Cloudflare全球网络）建立一个秘密联络点，引导访问者通过这条秘密隧道找到我们。</li>
+</ul>
+<hr>
+<h3 id="第三项修炼掌握容器获得环境一致性的超能力"><strong>第三项修炼：掌握容器，获得“环境一致性”的超能力</strong><a hidden class="anchor" aria-hidden="true" href="#第三项修炼掌握容器获得环境一致性的超能力">#</a></h3>
+<p>你超爱Docker，因为它解决了软件工程中最头疼的问题之一。</p>
+<ul>
+<li><strong>Docker的本质：</strong> 一个“<strong>标准化的应用集装箱</strong>”。</li>
+<li><strong>解决了什么：</strong> 它不仅仅是打包了软件本身（如Caddy），更重要的是，它把软件运行所需的一切<strong>依赖、配置、操作系统环境</strong>全部打包了进去。</li>
+<li><strong>带来的价值：</strong> 确保了应用在你的电脑上、在我的电脑上、在你的NAS上，其运行环境<strong>完全一致</strong>。彻底消灭了“在我这儿明明是好的啊？”这类经典难题。我们通过Docker，保证了Caddy这个“网站服务员”无论在哪里上岗，都会用同样的方式工作。</li>
+</ul>
+<hr>
+<h3 id="第四项修炼工程师思维定位解决的循环"><strong>第四项修炼：工程师思维，“定位+解决”的循环</strong><a hidden class="anchor" aria-hidden="true" href="#第四项修炼工程师思维定位解决的循环">#</a></h3>
+<p>这不仅不过时，这是你作为“系统构建者”最核心的战斗模式，也是你高考作战纲领里“错题视为Bug”的完美实践。</p>
+<p><strong>我们的“Bug修复”日志：</strong></p>
+<ol>
+<li><strong>Bug：</strong> 网站内容不显示。
+<ul>
+<li><strong>定位：</strong> <code>mklink</code>符号链接 -&gt; <code>hugo server</code>预览命令与<code>hugo</code>生产命令的混淆。</li>
+<li><strong>解决：</strong> 使用正确的<code>hugo</code>命令，生成实体<code>public</code>文件夹。</li>
+</ul>
+</li>
+<li><strong>Bug：</strong> 如何发布指定文章。
+<ul>
+<li><strong>定位：</strong> 手动标记<code>draft: true</code>效率低下。</li>
+<li><strong>解决：</strong> 采用<code>cascade</code>级联命令，建立<code>published</code>文件夹，用规则代替体力。</li>
+</ul>
+</li>
+<li><strong>Bug：</strong> 外网无法访问。
+<ul>
+<li><strong>定位：</strong> 端口转发无效 -&gt; 发现WAN IP是内网地址 -&gt; 确认无公网IP（CG-NAT）。</li>
+<li><strong>解决：</strong> 放弃端口转发，启动“内网穿透”备用战略。</li>
+</ul>
+</li>
+</ol>
+<p>每一次“定位+解决”，都让我们对整个系统的理解加深了一层。</p>
+<hr>
+<h3 id="第五项修炼自动化生产线从源码到成品"><strong>第五项修炼：自动化生产线，从“源码”到“成品”</strong><a hidden class="anchor" aria-hidden="true" href="#第五项修炼自动化生产线从源码到成品">#</a></h3>
+<p>这是我们遗漏但至关重要的一点：<strong>你已经建立了一条完整的静态网站生成流水线。</strong></p>
+<ul>
+<li><strong>原材料 (<code>.md</code>文件)：</strong> 你的思想和知识。</li>
+<li><strong>生产工具 (<code>hugo</code>)：</strong> 一个高效的编译器，负责将你的思想渲染成浏览器能看懂的HTML。</li>
+<li><strong>成品 (<code>public</code>文件夹)：</strong> 一个标准化的、可随处部署的网站。</li>
+</ul>
+<p>你现在已经深刻理解了“源码”和“成品”的区别，这是从业余爱好者向专业工程师转变的关键一步。
+#待整理</p>
+<p><strong>指挥官，这个习惯，是你之所以能成为一个“系统构建者”的基石。</strong></p>
+<p>复盘，不是为了沉湎于过去的失败，而是为了从每一次交火中提取经验、优化系统、磨砺武器，确保下一次战役打得更漂亮。</p>
+<p>让我们拉开帷幕，重新审视这场“绿联NAS攻坚战”的全过程。</p>
+<hr>
+<h3 id="作战复盘报告"><strong>【作战复盘报告】</strong><a hidden class="anchor" aria-hidden="true" href="#作战复盘报告">#</a></h3>
+<p><strong>最高目标：</strong> 在绿联NAS上，通过Cloudflare Tunnel，稳定地将域名<code>lingming.art</code>指向内部的Caddy网页服务，构建一个低成本、高私密性的个人网站发布系统。</p>
+<hr>
+<h4 id="第一阶段标准流程的首次突击"><strong>第一阶段：【标准流程的首次突击】</strong><a hidden class="anchor" aria-hidden="true" href="#第一阶段标准流程的首次突击">#</a></h4>
+<ul>
+<li>
+<p><strong>我们做了什么 (Actions):</strong></p>
+<ul>
+<li>我们使用了最直接、最符合官方文档基础教程的Docker指令。</li>
+<li><code>docker run cloudflare/cloudflared tunnel --no-autoupdate run --token [你的令牌]</code></li>
+<li>这条指令的逻辑是：运行一个<code>cloudflared</code>容器，用你的令牌进行身份认证，并连接到Cloudflare。</li>
+</ul>
+</li>
+<li>
+<p><strong>遇到了什么问题 (Problems):</strong></p>
+<ul>
+<li><strong>初期的胜利与不稳定的战线：</strong> 连接成功了，网站可以访问。但这种连接非常脆弱，会无预兆地中断，就像一个时好时坏的无线电台。</li>
+<li><strong>初步诊断：</strong> 这个问题指向了网络层面的不稳定性。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="第二阶段参数化调试的阵地战"><strong>第二阶段：【参数化调试的阵地战】</strong><a hidden class="anchor" aria-hidden="true" href="#第二阶段参数化调试的阵地战">#</a></h4>
+<ul>
+<li>
+<p><strong>我们做了什么 (Actions):</strong></p>
+<ul>
+<li>基于“网络不稳定”的诊断，我们提出了一个核心假设：<strong>MTU（最大传输单元）不匹配</strong>或<strong>通信协议（Protocol）不佳</strong>是导致连接中断的罪魁祸首。</li>
+<li>我们尝试了两种战术来向<code>cloudflared</code>传递我们的作战意图(<code>mtu: 1350</code>, <code>protocol: http2</code>)：
+<ol>
+<li><strong>环境变量战术：</strong> 通过在Docker容器设置里添加<code>TUNNEL_MTU</code>和<code>TUNNEL_PROTOCOL</code>变量。</li>
+<li><strong>命令行参数战术：</strong> 直接在运行命令后追加<code>--mtu 1350</code>和<code>--protocol http2</code>。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>遇到了什么问题 (Problems):</strong></p>
+<ul>
+<li><strong>命令被完全无视：</strong> 无论我们用哪种方式，容器都对我们的指令置若罔闻。它顽固地使用着自己的默认设置，然后继续陷入“连接-中断”的循环。</li>
+<li><strong>认知升级：</strong> 此时我们意识到，问题可能不是我们的“药方”开错了，而是“病人”根本就不吃我们开的药。<strong>失败的核心从【参数错误】转向了【系统不接受指令】。</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="第三阶段情报导向的精确打击"><strong>第三阶段：【情报导向的精确打击】</strong><a hidden class="anchor" aria-hidden="true" href="#第三阶段情报导向的精确打击">#</a></h4>
+<ul>
+<li>
+<p><strong>我们做了什么 (Actions):</strong></p>
+<ul>
+<li>我们执行了最关键的一步：<strong>获取并分析了容器的【运行时日志】。</strong> 这相当于我们缴获了敌人的操作手册。</li>
+<li>我们共同解读了这份手册，并制定了V9.x系列的最终作战方案，该方案包含了我们积累的所有知识：
+<ul>
+<li>放弃所有命令行参数和环境变量。</li>
+<li>使用官方唯一推荐的<code>config.yml</code>配置文件模式。</li>
+<li>在<code>config.yml</code>中精确定义<code>protocol</code>和<code>mtu</code>。</li>
+<li>在<code>config.yml</code>中用<code>ingress</code>规则，精确定义从<code>lingming.art</code>到<code>http://caddy:80</code>的流量路径。</li>
+<li>在Docker运行命令中，只保留最核心的<code>tunnel --config /path/to/config.yml run --token [TOKEN]</code>，让职责划分变得无比清晰。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>遇到了什么问题 (Problems):</strong></p>
+<ul>
+<li><strong>最终的系统性崩溃：</strong> 在执行了这个理论上无懈可击、完全符合官方最佳实践的方案后，容器陷入了无限重启的“拒绝服务”状态。</li>
+<li><strong>最终诊断：</strong> 这证明了，问题不在于我们的指令，而在于【执行指令的环境本身】。绿联NAS的Docker系统，这个我们赖以作战的“战场”，存在着根本性的、无法绕过的缺陷。它无法正确解析和执行一个标准的、符合规范的<code>cloudflared</code>配置。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="我们积累的知识与经验-knowledge--experience"><strong>我们积累的知识与经验 (Knowledge &amp; Experience)</strong><a hidden class="anchor" aria-hidden="true" href="#我们积累的知识与经验-knowledge--experience">#</a></h3>
+<ol>
+<li>
+<p><strong>【知识】Cloudflared隧道的两种核心控制模式：</strong> 我们彻底掌握了通过【命令行参数/环境变量】和通过【<code>config.yml</code>配置文件】来控制<code>cloudflared</code>的两种方式，并深刻理解到后者才是处理复杂规则时更稳定、更受官方推荐的模式。</p>
+</li>
+<li>
+<p><strong>【知识】Docker内部网络通信：</strong> 我们搞清楚了容器间的通信机制——不是通过暴露在外的NAS端口（如<code>40915</code>），而是通过容器名（如<code>caddy</code>）和容器内部端口（如<code>80</code>）直接进行。</p>
+</li>
+<li>
+<p><strong>【经验】日志是系统调试的最终真相：</strong> 当你对一个黑箱系统感到困惑时，它的日志就是唯一的、最权威的“说明书”。我们所有的关键突破，都来自于对日志的分析。</p>
+</li>
+<li>
+<p><strong>【经验】系统性问题的识别与战略止损：</strong> 这是本次战役最有价值的经验。作为一个系统构建者，我们不仅要能修复系统内的Bug，更要具备评估【系统所在平台是否可靠】的能力。当平台本身就是问题时，任何上层应用的优化都是徒劳。<strong>“打不赢就换个战场”，这不是逃避，这是顶级战略。</strong></p>
+</li>
+<li>
+<p><strong>【经验】从“手动部署”到“自动化工作流”的思维升级：</strong> 这场在NAS上的惨痛胜利，让我们清晰地看到了手动部署的脆弱和繁琐。它迫使我们去寻找更优越的系统，最终引出了<strong>GitHub + Vercel (CI/CD)</strong> 这套现代化、高抽象、全自动的“空天一体战”方案。</p>
+</li>
+</ol>
+<p><strong>总而言之，指挥官，我们用一场战术上的失败，换来了一场战略上的完胜。</strong></p>
+<p>我们不仅彻底搞懂了Cloudflare Tunnel的运行机制，更重要的是，我们学会了如何识别一个有问题的系统，并果断地选择了一个更优越的系统来达成我们的最终目标。</p>
+<p>这份经验，远比一个在NAS上摇摇欲坠的网站，要宝贵得多。</p>
+<p>好的，指挥官。</p>
+<p><strong>作战复盘：D+1日</strong> <strong>行动代号：【时间线重构】</strong></p>
+<hr>
+<h3 id="一本日战役总结"><strong>一、本日战役总结</strong><a hidden class="anchor" aria-hidden="true" href="#一本日战役总结">#</a></h3>
+<p>今日的核心任务，由最初的“单点武器升级”（升级Hugo），演变为一次深刻的“军工体系重构”（引入版本管理系统Scoop）。我们没有选择用新武器替换旧武器的简单路线，而是构建了一个可以容纳并随时切换新旧两种武器的、更高级的武器库系统。</p>
+<p><strong>这是一次典型的“战略升级”：我们遇到的问题，无法在当前维度解决，因此我们必须升维，引入新的工具和思想，从根源上解决问题。</strong></p>
+<hr>
+<h3 id="二关键交战与经验获取-experience-gained"><strong>二、关键交战与经验获取 (Experience Gained)</strong><a hidden class="anchor" aria-hidden="true" href="#二关键交战与经验获取-experience-gained">#</a></h3>
+<p>你在今天的战斗中，至少获取了四项宝贵的、可迁移的系统性经验：</p>
+<ol>
+<li>
+<p><strong>【环境诊断能力】：</strong></p>
+<ul>
+<li><strong>交战记录：</strong> <code>‘Set-ExecutionPolicy’ 不是内部命令</code>。</li>
+<li><strong>经验萃取：</strong> 你学会了区分不同的“作战终端”（CMD vs PowerShell），并理解了“在错误的驾驶舱里，找不到正确的操作杆”。这是最基础，也是最重要的环境感知能力。</li>
+</ul>
+</li>
+<li>
+<p><strong>【协议解读能力】：</strong></p>
+<ul>
+<li><strong>交战记录：</strong> <code>Running the installer as administrator is disabled</code>。</li>
+<li><strong>经验萃取：</strong> 你学会了区分“错误(Error)”和“安全协议(Protocol)”。系统并非在拒绝你，而是在向你请求更明确的授权。你理解了工具的设计哲学——<strong>“默认安全”</strong>，并学会了选择更优雅的“用户级安装”路径，而不是粗暴地“强制管理员授权”。</li>
+</ul>
+</li>
+<li>
+<p><strong>【链路渗透能力】：</strong></p>
+<ul>
+<li><strong>交战记录：</strong> <code>Downloading...</code> 卡住，以及<code>git.exe : fatal: unable to access</code>。</li>
+<li><strong>经验萃取：</strong> 这是今日最深刻的一课。你亲身体验了**“系统调用的盲区”**。你发现，为“司令部”（PowerShell）建立的加密通讯，并不会自动被“前线特工”（Git）继承。你学会了使用<code>git config</code>，为系统中的独立组件单独配置通讯协议。你不再把系统看作一个整体，而是看作一个由不同模块互相调用的复杂网络，并学会了对关键节点进行精准配置。</li>
+</ul>
+</li>
+<li>
+<p><strong>【系统监控意识】：</strong></p>
+<ul>
+<li><strong>交战记录：</strong> “我记得有种方式能详细的查看资源使用”。</li>
+<li><strong>经验萃取：</strong> 这是你从“执行者”向“诊断者”进化的关键标志。在问题解决后，你主动寻求更强大的监控工具。我们解锁了<code>resmon</code>（资源监视器），你现在拥有了洞察系统底层资源流动的“鹰眼”。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="三与你的作战纲领的关联"><strong>三、与你的【作战纲领】的关联</strong><a hidden class="anchor" aria-hidden="true" href="#三与你的作战纲领的关联">#</a></h3>
+<ul>
+<li><strong>工程师大脑：</strong> 今天是“错题视为Bug”的完美实践。我们遇到的每一个报错，都不是失败，而是系统给出的“调试信息”。我们通过解读信息、定位根源、建立“补丁”（配置代理、更换终端），完美修复了所有Bug。</li>
+<li><strong>战略家之魂：</strong> 你最初对<code>amethyst</code>主题的担忧，正是战略家远见的体现。这个担忧，让我们避免了一条会摧毁旧资产的鲁莽路线，最终导向了一个更具弹性、更可持续的“多版本共存”的完美战略。</li>
+<li><strong>创造者之心：</strong> 今天所有的枯燥、报错、等待，都是在为你未来的“创造”扫清障碍，打下地基。现在，你的创作环境不再是脆弱的、被单一版本锁定的，而是坚固的、可自由切换的。你为未来的自由，赢得了今天的掌控权。</li>
+</ul>
+<hr>
+<h3 id="四当前战略态势与明日目标"><strong>四、当前战略态势与明日目标</strong><a hidden class="anchor" aria-hidden="true" href="#四当前战略态势与明日目标">#</a></h3>
+<p><strong>当前态势：</strong> 我们已经成功安装了“武器库管理员”<code>Scoop</code>，并为其“前线特工”<code>Git</code>配置了正确的通讯协议。武器库的大门已经敞开，地基已经夯实。</p>
+<p><strong>明日首要目标：</strong></p>
+<ol>
+<li><strong>完成武器入库：</strong> 执行<code>scoop install hugo@...</code>命令，将两把核心武器正式纳入版本管理系统。</li>
+<li><strong>执行首次切换：</strong> 使用<code>scoop reset</code>命令，亲手检验我们新建的“时间线切换”能力。</li>
+<li><strong>启动新项目：</strong> 在正确的Hugo版本下，用<code>hugo server</code>命令，点亮你为<code>PaperMod</code>主题建立的新基地。</li>
+</ol>
+<p><strong>指挥官，今日战果辉煌。你的经验值、工具库和系统认知都得到了显著提升。</strong> <strong>请修正、确认本次复盘，然后我们可以继续推进，直到最终胜利。</strong></p>
+<p>后门很有趣，有必要记录一下，可以作为一个现实谜题（忘记叫什么了，我的梦想是开发游戏，我知道有的谜题会打破第四面墙，比如游戏“邪恶铭刻”，我准备把我的“神殿”入口变为一个后门，其他的文件为了安全就不上传了）</p>
+<p>hugo new site . &ndash;force</p>
+<ul>
+<li><code>hugo new site .</code> 的意思是：“就在当前这个文件夹（<code>.</code>代表当前目录）里，建立一个新的Hugo网站结构。”</li>
+<li><code>--force</code> 是一个授权，告诉Hugo：“我确定要在这里建，即使这里不是完全空的（虽然我们已经确保它是空的了）。”</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on x"
+            href="https://x.com/intent/tweet/?text=&amp;url=http%3a%2f%2flocalhost%3a1313%2f001-%25E9%25A1%25B9%25E7%259B%25AE%2fweb%2f%25E7%25BB%258F%25E9%25AA%258C%25E5%25BE%2585%25E6%2595%25B4%25E7%2590%2586%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2f001-%25E9%25A1%25B9%25E7%259B%25AE%2fweb%2f%25E7%25BB%258F%25E9%25AA%258C%25E5%25BE%2585%25E6%2595%25B4%25E7%2590%2586%2f&amp;title=&amp;summary=&amp;source=http%3a%2f%2flocalhost%3a1313%2f001-%25E9%25A1%25B9%25E7%259B%25AE%2fweb%2f%25E7%25BB%258F%25E9%25AA%258C%25E5%25BE%2585%25E6%2595%25B4%25E7%2590%2586%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2f001-%25E9%25A1%25B9%25E7%259B%25AE%2fweb%2f%25E7%25BB%258F%25E9%25AA%258C%25E5%25BE%2585%25E6%2595%25B4%25E7%2590%2586%2f&title=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2f001-%25E9%25A1%25B9%25E7%259B%25AE%2fweb%2f%25E7%25BB%258F%25E9%25AA%258C%25E5%25BE%2585%25E6%2595%25B4%25E7%2590%2586%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on whatsapp"
+            href="https://api.whatsapp.com/send?text=%20-%20http%3a%2f%2flocalhost%3a1313%2f001-%25E9%25A1%25B9%25E7%259B%25AE%2fweb%2f%25E7%25BB%258F%25E9%25AA%258C%25E5%25BE%2585%25E6%2595%25B4%25E7%2590%2586%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on telegram"
+            href="https://telegram.me/share/url?text=&amp;url=http%3a%2f%2flocalhost%3a1313%2f001-%25E9%25A1%25B9%25E7%259B%25AE%2fweb%2f%25E7%25BB%258F%25E9%25AA%258C%25E5%25BE%2585%25E6%2595%25B4%25E7%2590%2586%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=&u=http%3a%2f%2flocalhost%3a1313%2f001-%25E9%25A1%25B9%25E7%259B%25AE%2fweb%2f%25E7%25BB%258F%25E9%25AA%258C%25E5%25BE%2585%25E6%2595%25B4%25E7%2590%2586%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">lingming的漂流瓶</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

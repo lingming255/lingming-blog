@@ -1,0 +1,154 @@
+{
+	"nodes":[
+		{"id":"12eb12a135166fa1","type":"group","x":-240,"y":-660,"width":720,"height":670,"label":"单日"},
+		{"id":"4da38e95204321fa","type":"group","x":500,"y":-660,"width":720,"height":670,"label":"双日"},
+		{
+			"id":"55f29be280f9aebc",
+			"type":"text",
+			"text":"## 下午3h学习时间\n02:00-05:00",
+			"styleAttributes":{},
+			"x":-220,
+			"y":-375,
+			"width":280,
+			"height":100
+		},
+		{
+			"id":"cd4ef6be562dab40",
+			"type":"text",
+			"text":"## 晚上3h学习时间\n07:00-10:00",
+			"styleAttributes":{},
+			"x":-220,
+			"y":-180,
+			"width":280,
+			"height":100
+		},
+		{
+			"id":"4d2c0c884ee49c64",
+			"type":"text",
+			"text":"# 每日任务(周一、三、七)",
+			"styleAttributes":{},
+			"x":-220,
+			"y":-640,
+			"width":680,
+			"height":60
+		},
+		{
+			"id":"fa9019d5a46d4d6b",
+			"type":"text",
+			"text":"## 上午3h学习时间\n08:00-12:00【机动缓冲】(0.5h):应对突发情况",
+			"styleAttributes":{},
+			"x":-220,
+			"y":-560,
+			"width":280,
+			"height":100
+		},
+		{
+			"id":"da880fc3f22eabd2",
+			"type":"text",
+			"text":"# 每日任务(周二、四、六)",
+			"styleAttributes":{},
+			"x":520,
+			"y":-640,
+			"width":680,
+			"height":60
+		},
+		{
+			"id":"870082e1cdc5ab71",
+			"type":"text",
+			"text":"【干饭+休整】\n【数学】(2h): 分项爆破\n歼灭 A级题 40道 (总600道)\n歼灭 B级题 35道(总500道)\n【体能维护】(th):战备状态维持",
+			"styleAttributes":{},
+			"x":80,
+			"y":-375,
+			"width":380,
+			"height":170
+		},
+		{
+			"id":"c99167742e589d5a",
+			"type":"text",
+			"text":"【干饭+休整】(1.5h)：能量补给\n【英语】(3h): 执行核心任务\n【创作时间】(1h)：自由作战",
+			"styleAttributes":{},
+			"x":80,
+			"y":-180,
+			"width":380,
+			"height":170
+		},
+		{
+			"id":"db15f986f3978f50",
+			"type":"text",
+			"text":"【起床+干饭】(0.5h)\n【战术复盘】(1h):知识默写+漏洞修补\n【体能维护】(0.5h):激活身体机能\n【生物】(2h):两页",
+			"styleAttributes":{},
+			"x":80,
+			"y":-560,
+			"width":380,
+			"height":170
+		},
+		{
+			"id":"258f497fad93624c",
+			"type":"text",
+			"text":"【起床+干饭】(0.5h)\n【战术复盘】(1h):知识默写+漏洞修补\n【体能维护】(0.5h):激活身体机能\n【化学】(2h):两页",
+			"styleAttributes":{},
+			"x":820,
+			"y":-560,
+			"width":380,
+			"height":170
+		},
+		{
+			"id":"6b9f59fb86492ff4",
+			"type":"text",
+			"text":"【干饭+休整】\n【物理】(2h):分项爆破\n歼灭 A级题 40道\n歼灭 B级题 10道\n【体能维护】(th):战备状态维持",
+			"styleAttributes":{},
+			"x":820,
+			"y":-375,
+			"width":380,
+			"height":170
+		},
+		{
+			"id":"ddb592e67688a7e7",
+			"type":"text",
+			"text":"【干饭+休整】(1.5h)：能量补给\n【语文】(3h): 执行核心任务\n【创作时间】(1h)：自由作战",
+			"styleAttributes":{},
+			"x":820,
+			"y":-180,
+			"width":380,
+			"height":170
+		},
+		{
+			"id":"e6b17ea1fc8b59c8",
+			"type":"text",
+			"text":"## 上午3h学习时间\n08:00-12:00【机动缓冲】(0.5h):应对突发情况",
+			"styleAttributes":{},
+			"x":520,
+			"y":-560,
+			"width":280,
+			"height":100
+		},
+		{
+			"id":"e58b68cfaa58f64c",
+			"type":"text",
+			"text":"## 下午3h学习时间\n02:00-05:00",
+			"styleAttributes":{},
+			"x":520,
+			"y":-375,
+			"width":280,
+			"height":100
+		},
+		{
+			"id":"42a34822dd8b97cf",
+			"type":"text",
+			"text":"## 晚上3h学习时间\n07:00-10:00",
+			"styleAttributes":{},
+			"x":520,
+			"y":-180,
+			"width":280,
+			"height":100
+		}
+	],
+	"edges":[],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{
+			"publish":null
+		},
+		"startNode":"26a0dcabc5a0e418"
+	}
+}

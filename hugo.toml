@@ -6,19 +6,32 @@ title = "lingming的漂流瓶"
 theme = "PaperMod"
 layout = "profile" # <--- 注意它的位置！它和theme平级。
 
+# --- 输出格式配置 (完整版) ---
+# 明确告诉 Hugo，哪些类型的页面需要生成哪些格式的文件
+[outputs]
+  home = ["HTML", "RSS", "JSON"] # 首页：用于主页、搜索和RSS订阅
+  page = ["HTML"]               # 普通文章页：只需要HTML
+  section = ["HTML", "RSS"]     # 分类列表页 (如/神殿/): 需要HTML和该分类的RSS
+  taxonomy = ["HTML", "RSS"]    # 分类总览页 (如/tags/, /categories/): 需要HTML和总的RSS
+  term = ["HTML", "RSS"]        # 单个标签/分类页 (如/tags/hugo/): 需要HTML和该标签的RSS
+
 # --- 主题参数配置 ([params] Table) ---
 # 这个[params]表格是独立的，专门用于配置PaperMod主题的各种功能。
-[params]
-    # -- 功能开关 --
-    ShowPostNavLinks = true
-    ShowBreadCrumbs = true
-    ShowReadingTime = true
-    ShowShareButtons = true
-    ShowCodeCopyButtons = true
+    [params]
+        # -- 功能开关 --
+        ShowPostNavLinks = true
+        ShowBreadCrumbs = true
+        ShowReadingTime = true
+        ShowShareButtons = true
+        ShowCodeCopyButtons = true
+        comments = true
 
+    # 激活自定义样式和脚本
+    # customCSS = ["css/custom.css"]
+    # customJS = ["js/dynamic_title.js", "js/chat-bubble.js"] # 把新脚本加到列表里
     # -- 自定义脚本注入！ --
     # Hugo会在这里读取，并把脚本添加到网页底部。
-    # customJS = ["js/dynamic_title.js"] 
+    # customJS = ["js/dynamic_title.js"] #当你看到这一堆#号时就应该反应过来custom用不了！！！！！
     
     # -- 首页Profile模式配置 --
     [params.profileMode]
@@ -31,8 +44,8 @@ layout = "profile" # <--- 注意它的位置！它和theme平级。
     
         # -- 首页按钮 --
         [[params.profileMode.buttons]]
-        name = "墙外"
-        url = "/墙外/"
+        name = "工具"
+        url = "/002-技能库/"
 
         [[params.profileMode.buttons]]
         name = "神殿"
@@ -46,28 +59,49 @@ layout = "profile" # <--- 注意它的位置！它和theme平级。
         name = "标签"
         url = "/tags/"
 
+[params.waline]
+  # ❗️❗️ 把这里换成你自己的 Waline 服务端地址
+  serverURL = "https://waline-comments-tan.vercel.app/" 
+  lang = "zh-cn"
+  visitor = true # 设置为 true，Waline 会显示访客统计
+
+  # 评论框必填项
+  requiredmeta = ["nick", "mail"] 
+
+  # 使用的 Emoji 表情包
+  emoji = [
+    "https://unpkg.com/@waline/emojis@1.2.0/weibo"
+  ]
+
+  # 适配 PaperMod 的暗黑模式
+  dark = "body.dark"
+
+  # 评论框的文字提示
+  [params.waline.locale]
+    admin = "博主"
+    placeholder = "欢迎留下你的想法！"
 # --- 菜单配置 (Menu Configuration) ---
 # 这是独立的菜单模块，用于配置导航栏。
-[menu]
-    [[menu.main]]
-    identifier = "archives"
-    name = "归档"
-    url = "/archives/"
-    weight = 10
+    [menu]
+        [[menu.main]]
+        identifier = "archives"
+         name = "归档"
+        url = "/archives/"
+        weight = 10
 
     [[menu.main]]
-    identifier = "search"
-    name = "搜索"
-    url = "/search/"
-    weight = 20
+        identifier = "search"
+        name = "搜索"
+        url = "/search/"
+        weight = 20
 
     [[menu.main]]
-    identifier = "tags"
-    name = "标签"
-    url = "/tags/"
-    weight = 30
+        identifier = "tags"
+        name = "标签"
+        url = "/tags/"
+        weight = 30
 
 # --- Markdown渲染器配置 ---
 # 允许在Markdown中使用HTML代码，保持不变。
 [markup.goldmark.renderer]
-  unsafe = true
+    unsafe = true

@@ -1,7 +1,3 @@
 {
-  "buildCommand": "git submodule update --init --recursive && hugo --gc --minify",
-  "env": {
-    "MONGO_URI": "mongodb+srv://lingming:3MEavSJXABpdX3SV@lingming.kjeovsa.mongodb.net/?retryWrites=true&w=majority&appName=lingming"
-  },
-  "regions": ["hkg1"]
+  "buildCommand": "git submodule update --init --recursive && hugo --gc --minify"
 }

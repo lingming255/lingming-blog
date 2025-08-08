@@ -1,0 +1,43 @@
+{{- /* --- 自定义脚本开始 --- */}}
+
+{{- /* 1. 您的动态标题脚本 */}}
+<script src="/js/dynamic_title.js"></script>
+
+{{- /* 1. Waline 评论脚本 (只有在文章页等需要评论的地方加载) */ -}}
+{{- if .IsPage }}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const walineContainer = document.getElementById('waline');
+        if (walineContainer) {
+            import('https://unpkg.com/@waline/client@v3/dist/waline.js').then(({ init }) => {
+                // 从 Hugo 配置中获取所有 Waline 相关的参数
+                const hugoConfig = JSON.parse(`{{ .Site.Params.waline | jsonify | safeJS }}`);
+                
+                // 初始化 Waline
+                init({
+                    // 1. 传入所有从 Hugo 获取的配置
+                    ...hugoConfig,
+
+                    // 2. 手动修正 Hugo 自动转小写的关键参数
+                    serverURL: hugoConfig.serverurl,
+                    requiredMeta: hugoConfig.requiredmeta,
+                    
+                    // 3. 传入页面特有的固定参数
+                    el: '#waline',
+                    path: '{{ .Permalink | relURL }}',
+                });
+            }).catch(e => console.error('Waline 初始化失败:', e));
+        }
+    });
+</script>
+{{- end }}
+
+
+{{- /* 2. 聊天气泡的 HTML 骨架 (全局加载) */ -}}
+<div id="chat-bubble">
+    <p id="chat-bubble-text">你好呀！点我试试？</p>
+</div>
+
+{{- /* 3. 直接注入我们自己的 JS 文件 (代替hugo.toml的配置) */ -}}
+<script src="{{ "js/dynamic_title.js" | relURL }}"></script>
+<script src="{{ "js/chat-bubble.js" | relURL }}"></script>
