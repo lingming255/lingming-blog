@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>计算机网络 on lingming的漂流瓶</title>
-    <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+    <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
     <description>Recent content in 计算机网络 on lingming的漂流瓶</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 08 Aug 2025 13:34:33 +0000</lastBuildDate>
-    <atom:link href="https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>lingming.art 持久化部署作战手册 v2.0</title>
-      <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/lingming/</link>
+      <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/lingming/</link>
       <pubDate>Fri, 08 Aug 2025 13:34:33 +0000</pubDate>
-      <guid>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/lingming/</guid>
+      <guid>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/lingming/</guid>
       <description>&lt;h1 id=&#34;lingmingart-持久化部署作战手册-v20&#34;&gt;lingming.art 持久化部署作战手册 v2.0&lt;/h1&gt;
 &lt;h2 id=&#34;一核心理念系统工程&#34;&gt;一、核心理念：系统工程&lt;/h2&gt;
 &lt;p&gt;本手册旨在将个人网站 &lt;code&gt;lingming.art&lt;/code&gt; 的部署与维护视为一项可解构、可规划、可复制的系统工程。我们的目标是构建一个高可用、高内聚、低耦合、易于维护的自动化发布系统。&lt;/p&gt;
@@ -46,9 +46,9 @@
     </item>
     <item>
       <title>个人网站 (lingming.art) 持久化部署作战手册</title>
-      <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-lingming/</link>
+      <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-lingming/</link>
       <pubDate>Fri, 08 Aug 2025 13:33:18 +0000</pubDate>
-      <guid>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-lingming/</guid>
+      <guid>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-lingming/</guid>
       <description>&lt;h1 id=&#34;个人网站-lingmingart-持久化部署作战手册&#34;&gt;个人网站 (lingming.art) 持久化部署作战手册&lt;/h1&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;一作战目标-objective&#34;&gt;一、作战目标 (Objective)&lt;/h2&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Git on lingming的漂流瓶</title>
-    <link>https://lingming.art/tags/git/</link>
+    <link>http://localhost:1313/tags/git/</link>
     <description>Recent content in Git on lingming的漂流瓶</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 08 Aug 2025 13:34:52 +0000</lastBuildDate>
-    <atom:link href="https://lingming.art/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git基础操作</title>
-      <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</link>
+      <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Fri, 08 Aug 2025 13:34:52 +0000</pubDate>
-      <guid>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</guid>
+      <guid>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</guid>
       <description>&lt;p&gt;cd /c/Users/ROG/my-blog-test   //要用正斜杠，win是反斜杠，（cd，Change Directory表示切换目录）
 hugo server -D  //开启hugo服务（git bash、cmd都可以）
 ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;

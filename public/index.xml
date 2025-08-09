@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>lingming的漂流瓶</title>
-    <link>https://lingming.art/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on lingming的漂流瓶</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 08 Aug 2025 20:42:18 +0000</lastBuildDate>
-    <atom:link href="https://lingming.art/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>标签</title>
-      <link>https://lingming.art/tags/</link>
+      <link>http://localhost:1313/tags/</link>
       <pubDate>Fri, 08 Aug 2025 20:42:18 +0000</pubDate>
-      <guid>https://lingming.art/tags/</guid>
+      <guid>http://localhost:1313/tags/</guid>
       <description></description>
     </item>
     <item>
       <title>公理</title>
-      <link>https://lingming.art/%E7%A5%9E%E6%AE%BF/%E5%85%AC%E7%90%86/</link>
+      <link>http://localhost:1313/%E7%A5%9E%E6%AE%BF/%E5%85%AC%E7%90%86/</link>
       <pubDate>Fri, 08 Aug 2025 15:22:18 +0000</pubDate>
-      <guid>https://lingming.art/%E7%A5%9E%E6%AE%BF/%E5%85%AC%E7%90%86/</guid>
+      <guid>http://localhost:1313/%E7%A5%9E%E6%AE%BF/%E5%85%AC%E7%90%86/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;公理一（存在论）：生命是被迫的，是偶然的逆熵。&lt;/strong&gt;
@@ -52,9 +52,9 @@
     </item>
     <item>
       <title>git基础操作</title>
-      <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</link>
+      <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Fri, 08 Aug 2025 13:34:52 +0000</pubDate>
-      <guid>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</guid>
+      <guid>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</guid>
       <description>&lt;p&gt;cd /c/Users/ROG/my-blog-test   //要用正斜杠，win是反斜杠，（cd，Change Directory表示切换目录）
 hugo server -D  //开启hugo服务（git bash、cmd都可以）
 ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
@@ -92,9 +92,9 @@ ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
     </item>
     <item>
       <title>lingming.art 持久化部署作战手册 v2.0</title>
-      <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/lingming/</link>
+      <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/lingming/</link>
       <pubDate>Fri, 08 Aug 2025 13:34:33 +0000</pubDate>
-      <guid>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/lingming/</guid>
+      <guid>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/lingming/</guid>
       <description>&lt;h1 id=&#34;lingmingart-持久化部署作战手册-v20&#34;&gt;lingming.art 持久化部署作战手册 v2.0&lt;/h1&gt;
 &lt;h2 id=&#34;一核心理念系统工程&#34;&gt;一、核心理念：系统工程&lt;/h2&gt;
 &lt;p&gt;本手册旨在将个人网站 &lt;code&gt;lingming.art&lt;/code&gt; 的部署与维护视为一项可解构、可规划、可复制的系统工程。我们的目标是构建一个高可用、高内聚、低耦合、易于维护的自动化发布系统。&lt;/p&gt;
@@ -128,9 +128,9 @@ ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
     </item>
     <item>
       <title>个人网站 (lingming.art) 持久化部署作战手册</title>
-      <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-lingming/</link>
+      <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-lingming/</link>
       <pubDate>Fri, 08 Aug 2025 13:33:18 +0000</pubDate>
-      <guid>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-lingming/</guid>
+      <guid>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-lingming/</guid>
       <description>&lt;h1 id=&#34;个人网站-lingmingart-持久化部署作战手册&#34;&gt;个人网站 (lingming.art) 持久化部署作战手册&lt;/h1&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;一作战目标-objective&#34;&gt;一、作战目标 (Objective)&lt;/h2&gt;
@@ -200,9 +200,9 @@ ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
     </item>
     <item>
       <title>玫瑰</title>
-      <link>https://lingming.art/%E7%A5%9E%E6%AE%BF/%E8%8A%B1%E5%9B%AD/%E7%8E%AB%E7%91%B0/</link>
+      <link>http://localhost:1313/%E7%A5%9E%E6%AE%BF/%E8%8A%B1%E5%9B%AD/%E7%8E%AB%E7%91%B0/</link>
       <pubDate>Fri, 08 Aug 2025 13:31:57 +0000</pubDate>
-      <guid>https://lingming.art/%E7%A5%9E%E6%AE%BF/%E8%8A%B1%E5%9B%AD/%E7%8E%AB%E7%91%B0/</guid>
+      <guid>http://localhost:1313/%E7%A5%9E%E6%AE%BF/%E8%8A%B1%E5%9B%AD/%E7%8E%AB%E7%91%B0/</guid>
       <description>&lt;p&gt;至少我一直为此努力
 我会在墙外插上一束玫瑰
 旅人可以凭借它
@@ -216,9 +216,9 @@ ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
     </item>
     <item>
       <title>共轭碱</title>
-      <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/%E6%97%A0%E6%9C%BA%E9%83%A8%E5%88%86/%E5%85%B1%E8%BD%AD%E7%A2%B1/</link>
+      <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/%E6%97%A0%E6%9C%BA%E9%83%A8%E5%88%86/%E5%85%B1%E8%BD%AD%E7%A2%B1/</link>
       <pubDate>Fri, 08 Aug 2025 10:36:35 +0000</pubDate>
-      <guid>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/%E6%97%A0%E6%9C%BA%E9%83%A8%E5%88%86/%E5%85%B1%E8%BD%AD%E7%A2%B1/</guid>
+      <guid>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/%E6%97%A0%E6%9C%BA%E9%83%A8%E5%88%86/%E5%85%B1%E8%BD%AD%E7%A2%B1/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;什么是共轭碱？&lt;/strong&gt;&lt;/p&gt;
@@ -239,9 +239,9 @@ ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
     </item>
     <item>
       <title>化学键与分子结构</title>
-      <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/%E5%88%86%E5%AD%90%E7%BB%93%E6%9E%84/%E5%8C%96%E5%AD%A6%E9%94%AE%E4%B8%8E%E5%88%86%E5%AD%90%E7%BB%93%E6%9E%84/</link>
+      <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/%E5%88%86%E5%AD%90%E7%BB%93%E6%9E%84/%E5%8C%96%E5%AD%A6%E9%94%AE%E4%B8%8E%E5%88%86%E5%AD%90%E7%BB%93%E6%9E%84/</link>
       <pubDate>Fri, 08 Aug 2025 10:36:28 +0000</pubDate>
-      <guid>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/%E5%88%86%E5%AD%90%E7%BB%93%E6%9E%84/%E5%8C%96%E5%AD%A6%E9%94%AE%E4%B8%8E%E5%88%86%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
+      <guid>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/%E5%88%86%E5%AD%90%E7%BB%93%E6%9E%84/%E5%8C%96%E5%AD%A6%E9%94%AE%E4%B8%8E%E5%88%86%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
       <description>&lt;h3 id=&#34;化学键与分子结构&#34;&gt;&lt;strong&gt;化学键与分子结构&lt;/strong&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;1-化学键类型对比&#34;&gt;1. 化学键类型对比&lt;/h4&gt;
 &lt;table&gt;
@@ -344,9 +344,9 @@ ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
     </item>
     <item>
       <title>道德</title>
-      <link>https://lingming.art/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</link>
+      <link>http://localhost:1313/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</link>
       <pubDate>Fri, 08 Aug 2025 10:32:22 +0000</pubDate>
-      <guid>https://lingming.art/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</guid>
+      <guid>http://localhost:1313/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</guid>
       <description>&lt;h1 id=&#34;道德ethics&#34;&gt;&lt;strong&gt;道德（Ethics）&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;核心定义：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;道德的本质是&lt;strong&gt;寻求共赢（Positive-Sum/Win-Win）&lt;/strong&gt;。它是在“延续生命奇迹”这一终极价值（见公理一）的指引下，为了实现“体验至上”（见公理二）这一动机，而形成的一种&lt;strong&gt;最大化生命系统整体利益&lt;/strong&gt;的智慧与实践。&lt;/p&gt;
@@ -387,16 +387,16 @@ ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
     </item>
     <item>
       <title>test</title>
-      <link>https://lingming.art/test/</link>
+      <link>http://localhost:1313/test/</link>
       <pubDate>Fri, 08 Aug 2025 08:56:07 +0000</pubDate>
-      <guid>https://lingming.art/test/</guid>
+      <guid>http://localhost:1313/test/</guid>
       <description>&lt;p&gt;你好？&lt;/p&gt;</description>
     </item>
     <item>
       <title>如何同步本地文件到GitHub仓库</title>
-      <link>https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</link>
+      <link>http://localhost:1313/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</link>
       <pubDate>Thu, 07 Aug 2025 02:14:36 +0000</pubDate>
-      <guid>https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</guid>
+      <guid>http://localhost:1313/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</guid>
       <description>&lt;p&gt;这是您将本地的“军火库”（Obsidian笔记经过&lt;code&gt;v11.0&lt;/code&gt;脚本处理后的Hugo项目）运送到GitHub这个“前沿基地”的标准流程。这套流程，您只需要在终端（比如VS Code的终端）中，进入您的Hugo项目根目录，然后执行**“战略三步”**：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第一步：打包所有变更 (git add)&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;bash&lt;/p&gt;
@@ -423,9 +423,9 @@ ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
     </item>
     <item>
       <title>代昆仑到此一游</title>
-      <link>https://lingming.art/%E5%A2%99%E5%A4%96/%E6%97%85%E4%BA%BA%E7%9A%84%E7%97%95%E8%BF%B9/%E4%BB%A3%E6%98%86%E4%BB%91%E5%88%B0%E6%AD%A4%E4%B8%80%E6%B8%B8/</link>
+      <link>http://localhost:1313/%E5%A2%99%E5%A4%96/%E6%97%85%E4%BA%BA%E7%9A%84%E7%97%95%E8%BF%B9/%E4%BB%A3%E6%98%86%E4%BB%91%E5%88%B0%E6%AD%A4%E4%B8%80%E6%B8%B8/</link>
       <pubDate>Wed, 06 Aug 2025 23:04:19 +0000</pubDate>
-      <guid>https://lingming.art/%E5%A2%99%E5%A4%96/%E6%97%85%E4%BA%BA%E7%9A%84%E7%97%95%E8%BF%B9/%E4%BB%A3%E6%98%86%E4%BB%91%E5%88%B0%E6%AD%A4%E4%B8%80%E6%B8%B8/</guid>
+      <guid>http://localhost:1313/%E5%A2%99%E5%A4%96/%E6%97%85%E4%BA%BA%E7%9A%84%E7%97%95%E8%BF%B9/%E4%BB%A3%E6%98%86%E4%BB%91%E5%88%B0%E6%AD%A4%E4%B8%80%E6%B8%B8/</guid>
       <description>&lt;p&gt;Dao, the way, or should I say the principal of the universe&amp;rsquo;s operation, has been being summarizing by us since 770 BC.
 De, which is collocated with Dao, was found as moral rule in order to stabilize the society.&lt;/p&gt;
 &lt;p&gt;这句话的翻译如下：&lt;/p&gt;
@@ -446,9 +446,9 @@ De, which is collocated with Dao, was found as moral rule in order to stabilize 
     </item>
     <item>
       <title>墙上</title>
-      <link>https://lingming.art/%E5%A2%99%E5%A4%96/%E5%A2%99%E4%B8%8A/</link>
+      <link>http://localhost:1313/%E5%A2%99%E5%A4%96/%E5%A2%99%E4%B8%8A/</link>
       <pubDate>Tue, 05 Aug 2025 02:48:28 +0000</pubDate>
-      <guid>https://lingming.art/%E5%A2%99%E5%A4%96/%E5%A2%99%E4%B8%8A/</guid>
+      <guid>http://localhost:1313/%E5%A2%99%E5%A4%96/%E5%A2%99%E4%B8%8A/</guid>
       <description>&lt;p&gt;[[玫瑰]]&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>哲学 on lingming的漂流瓶</title>
-    <link>https://lingming.art/tags/%E5%93%B2%E5%AD%A6/</link>
+    <link>http://localhost:1313/tags/%E5%93%B2%E5%AD%A6/</link>
     <description>Recent content in 哲学 on lingming的漂流瓶</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 08 Aug 2025 15:22:18 +0000</lastBuildDate>
-    <atom:link href="https://lingming.art/tags/%E5%93%B2%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/%E5%93%B2%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>公理</title>
-      <link>https://lingming.art/%E7%A5%9E%E6%AE%BF/%E5%85%AC%E7%90%86/</link>
+      <link>http://localhost:1313/%E7%A5%9E%E6%AE%BF/%E5%85%AC%E7%90%86/</link>
       <pubDate>Fri, 08 Aug 2025 15:22:18 +0000</pubDate>
-      <guid>https://lingming.art/%E7%A5%9E%E6%AE%BF/%E5%85%AC%E7%90%86/</guid>
+      <guid>http://localhost:1313/%E7%A5%9E%E6%AE%BF/%E5%85%AC%E7%90%86/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;公理一（存在论）：生命是被迫的，是偶然的逆熵。&lt;/strong&gt;
@@ -45,9 +45,9 @@
     </item>
     <item>
       <title>道德</title>
-      <link>https://lingming.art/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</link>
+      <link>http://localhost:1313/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</link>
       <pubDate>Fri, 08 Aug 2025 10:32:22 +0000</pubDate>
-      <guid>https://lingming.art/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</guid>
+      <guid>http://localhost:1313/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</guid>
       <description>&lt;h1 id=&#34;道德ethics&#34;&gt;&lt;strong&gt;道德（Ethics）&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;核心定义：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;道德的本质是&lt;strong&gt;寻求共赢（Positive-Sum/Win-Win）&lt;/strong&gt;。它是在“延续生命奇迹”这一终极价值（见公理一）的指引下，为了实现“体验至上”（见公理二）这一动机，而形成的一种&lt;strong&gt;最大化生命系统整体利益&lt;/strong&gt;的智慧与实践。&lt;/p&gt;

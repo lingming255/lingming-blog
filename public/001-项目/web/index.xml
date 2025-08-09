@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>web on lingming的漂流瓶</title>
-    <link>https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/</link>
+    <link>http://localhost:1313/001-%E9%A1%B9%E7%9B%AE/web/</link>
     <description>Recent content in web on lingming的漂流瓶</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 07 Aug 2025 02:14:36 +0000</lastBuildDate>
-    <atom:link href="https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/001-%E9%A1%B9%E7%9B%AE/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何同步本地文件到GitHub仓库</title>
-      <link>https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</link>
+      <link>http://localhost:1313/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</link>
       <pubDate>Thu, 07 Aug 2025 02:14:36 +0000</pubDate>
-      <guid>https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</guid>
+      <guid>http://localhost:1313/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</guid>
       <description>&lt;p&gt;这是您将本地的“军火库”（Obsidian笔记经过&lt;code&gt;v11.0&lt;/code&gt;脚本处理后的Hugo项目）运送到GitHub这个“前沿基地”的标准流程。这套流程，您只需要在终端（比如VS Code的终端）中，进入您的Hugo项目根目录，然后执行**“战略三步”**：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第一步：打包所有变更 (git add)&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;bash&lt;/p&gt;
