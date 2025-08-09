@@ -92,7 +92,7 @@ def sync_notes(source_dir):
                             updated_content_str = frontmatter.dumps(post)
                             with open(source_file_path, 'w', encoding='utf-8') as f:
                                 f.write(updated_content_str)
-                            print(f"  [反哺] 已更新源文件: {file}")
+                        print(f"  [反哺] 已更新源文件: {file}")
 
                         relative_path = os.path.relpath(root, source_dir)
                         destination_dir = os.path.join(target_dir, relative_path)
