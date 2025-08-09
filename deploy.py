@@ -119,19 +119,7 @@ def sync_notes(source_dir):
                 print(f"  [清理] 已删除空文件夹: {dir_path}")
             
     # 【创建中间页】
-    print("\n步骤4/4: 正在检查并创建中间分类页...")
-    for root, dirs, files in os.walk(target_dir):
-        # 如果一个目录既没有 _index.md，也没有 index.md，我们就为它创建一个
-        if '_index.md' not in files and 'index.md' not in files:
-             # 但要排除根目录和空目录
-            if root != target_dir and (dirs or files):
-                dir_name = os.path.basename(root)
-                index_file_path = os.path.join(root, '_index.md')
-                with open(index_file_path, 'w', encoding='utf-8') as f:
-                    f.write('---\n')
-                    f.write(f'title: "{dir_name}"\n')
-                    f.write('---\n')
-                print(f"  [创建] 已为文件夹 '{dir_name}' 创建了索引页。")
+
 
 # --- 4. 程序主入口 ---
 def main():
