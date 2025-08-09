@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>web on lingming的漂流瓶</title>
+    <link>https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/</link>
+    <description>Recent content in web on lingming的漂流瓶</description>
+    <generator>Hugo -- 0.146.0</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 07 Aug 2025 02:14:36 +0000</lastBuildDate>
+    <atom:link href="https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何同步本地文件到GitHub仓库</title>
+      <link>https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Thu, 07 Aug 2025 02:14:36 +0000</pubDate>
+      <guid>https://lingming.art/001-%E9%A1%B9%E7%9B%AE/web/%E5%A6%82%E4%BD%95%E7%94%A8git%E5%91%BD%E4%BB%A4%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E4%BB%93%E5%BA%93/</guid>
+      <description>&lt;p&gt;这是您将本地的“军火库”（Obsidian笔记经过&lt;code&gt;v11.0&lt;/code&gt;脚本处理后的Hugo项目）运送到GitHub这个“前沿基地”的标准流程。这套流程，您只需要在终端（比如VS Code的终端）中，进入您的Hugo项目根目录，然后执行**“战略三步”**：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一步：打包所有变更 (git add)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;bash&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git add .&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;指令解析：&lt;/strong&gt; &lt;code&gt;git add .&lt;/code&gt; 命令会扫描您本地项目文件夹里的所有变化（新增的文件、修改过的文件、删除的文件），并将它们全部标记为“待打包”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;战术比喻：&lt;/strong&gt; 这就像您把所有要送往前线的物资（新的文章、修改的配置）都清点一遍，然后统一放进一个巨大的运输箱里。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;第二步：贴上封条和摘要 (git commit)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;bash&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git commit -m &amp;quot;一个清晰的更新摘要，比如：新增3篇笔记并更新主题&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;指令解析：&lt;/strong&gt; &lt;code&gt;git commit&lt;/code&gt; 会将您刚刚打包的所有变更，正式“封箱”，并生成一个永久性的版本记录。&lt;code&gt;-m&lt;/code&gt; 后面的文字，就是您为这个箱子贴上的“内容摘要”，至关重要。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;战术比喻：&lt;/strong&gt; 您为运输箱贴上封条，并在标签上写明：“2025年8月6日批次，内含《系统构建学》和《屠龙纲要》两份最新战报”。这能让您在未来快速回顾每一次的变更内容。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;第三步：发射到轨道 (git push)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;bash&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git push origin main&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;指令解析：&lt;/strong&gt; &lt;code&gt;git push&lt;/code&gt; 会将您本地“封箱”好的最新版本，正式推送（上传）到GitHub上名为&lt;code&gt;origin&lt;/code&gt;的远程仓库的&lt;code&gt;main&lt;/code&gt;分支中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;战术比喻：&lt;/strong&gt; 按下发射按钮，将这箱物资精准地送入GitHub这个轨道空间站。Vercel会立刻侦测到空间站收到了新物资，并自动开始下一步的部署。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;总结：未来您的每一次更新，都只需要重复这“三步曲”：&lt;code&gt;add&lt;/code&gt; -&amp;gt; &lt;code&gt;commit&lt;/code&gt; -&amp;gt; &lt;code&gt;push&lt;/code&gt;。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

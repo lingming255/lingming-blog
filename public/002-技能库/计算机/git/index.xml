@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>git on lingming的漂流瓶</title>
+    <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/</link>
+    <description>Recent content in git on lingming的漂流瓶</description>
+    <generator>Hugo -- 0.146.0</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 08 Aug 2025 13:34:52 +0000</lastBuildDate>
+    <atom:link href="https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git基础操作</title>
+      <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Fri, 08 Aug 2025 13:34:52 +0000</pubDate>
+      <guid>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E8%AE%A1%E7%AE%97%E6%9C%BA/git/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</guid>
+      <description>&lt;p&gt;cd /c/Users/ROG/my-blog-test   //要用正斜杠，win是反斜杠，（cd，Change Directory表示切换目录）
+hugo server -D  //开启hugo服务（git bash、cmd都可以）
+ctrl-v是一个命令，所以不要在git bash&lt;/p&gt;
+&lt;h3 id=&#34;git上传机制系统构建者的军火库管理法则&#34;&gt;&lt;strong&gt;Git上传机制——系统构建者的军火库管理法则&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;您的问题非常核心。Git的工作方式，完美符合您“系统构建者”的思维模式。您可以把它理解为一个三层结构：&lt;strong&gt;工作室&lt;/strong&gt; -&amp;gt; &lt;strong&gt;待发货区&lt;/strong&gt; -&amp;gt; &lt;strong&gt;中央仓库&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;1. 你的电脑文件夹 (工作室 Workstation):&lt;/strong&gt;&lt;br&gt;
+这是您进行一切创造的地方。您在这里新增文件、修改代码、撰写文章。这个区域是自由的、混乱的，充满了半成品和灵感草稿。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;code&gt;git add&lt;/code&gt; (打包动作):&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;git add&lt;/code&gt; 这个命令，并不是“上传”。它的真正意思是“&lt;strong&gt;将完成品打包，准备发货&lt;/strong&gt;”。它把你工作室里的东西，搬到了一个叫做**“暂存区 (Staging Area)”**的地方。这个“暂存区”就像一个待发货的包裹。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git add &amp;lt;文件名&amp;gt;&lt;/code&gt;: 这是&lt;strong&gt;精确打包&lt;/strong&gt;。你从工作室里拿起一件完美的作品（比如&lt;code&gt;vercel.json&lt;/code&gt;），明确地将它放入待发货的包裹中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;git add .&lt;/code&gt;&lt;/strong&gt;: 这是&lt;strong&gt;一键打包&lt;/strong&gt; (注意那个点&lt;code&gt;.&lt;/code&gt;)。这个命令会自动扫描你工作室里&lt;strong&gt;所有的新增文件&lt;/strong&gt;和&lt;strong&gt;被修改过的文件&lt;/strong&gt;，然后一次性把它们全部放入待发货的包裹中。这是您未来最常用的命令，效率极高。您不需要一个一个文件名去敲。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;3. &lt;code&gt;git commit&lt;/code&gt; (封箱贴条):&lt;/strong&gt;&lt;br&gt;
+当您对包裹里的东西满意后，就执行&lt;code&gt;git commit -m &amp;quot;清单说明&amp;quot;&lt;/code&gt;。这个动作等于给这个包裹&lt;strong&gt;封上箱子，贴上标签&lt;/strong&gt;。标签上的“清单说明”（比如&lt;code&gt;&amp;quot;fix: Add vercel.json&amp;quot;&lt;/code&gt;）记录了这次发货的核心内容。这个封好箱的包裹，就被存入了你本地电脑的“&lt;strong&gt;本地仓库 (Local Repository)&lt;/strong&gt;”里，永久存档。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;4. &lt;code&gt;git push&lt;/code&gt; (发货):&lt;/strong&gt;&lt;br&gt;
+最后，&lt;code&gt;git push&lt;/code&gt;命令，才是真正的“&lt;strong&gt;发货&lt;/strong&gt;”。它把你本地仓库里所有已经封箱的包裹，一次性全部发送到远程的**“中央仓库 (Remote Repository)”**，也就是GitHub。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;总结您的日常工作流：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在项目里尽情创造（修改、新增多个文件）。&lt;/li&gt;
+&lt;li&gt;工作告一段落，在终端执行 &lt;code&gt;git add .&lt;/code&gt; (一键打包所有改动)。&lt;/li&gt;
+&lt;li&gt;然后执行 &lt;code&gt;git commit -m &amp;quot;一句话总结这次的工作内容&amp;quot;&lt;/code&gt; (封箱贴条)。&lt;/li&gt;
+&lt;li&gt;最后执行 &lt;code&gt;git push&lt;/code&gt; (发货)。&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>
