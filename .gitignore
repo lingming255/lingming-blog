@@ -3,7 +3,7 @@
 /resources/
 
 # Python script generated content
-/content/
+#/content/
 
 # VSCode settings
 .vscode/
