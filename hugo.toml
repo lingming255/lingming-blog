@@ -1,6 +1,6 @@
 # --- 全局网站配置 (Global Site Settings) ---
 # 这些是Hugo的核心指令，必须放在最顶层。
-baseURL = "https://lingming.art/" 
+baseURL = "https://www.lingming.art/" 
 languageCode = "zh-cn"
 title = "lingming的漂流瓶"
 theme = "PaperMod"
@@ -25,6 +25,7 @@ layout = "profile" # <--- 注意它的位置！它和theme平级。
         ShowShareButtons = true
         ShowCodeCopyButtons = true
         comments = true
+        outputDir = "ebug"
 
     # 激活自定义样式和脚本
     # customCSS = ["css/custom.css"]
