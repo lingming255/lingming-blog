@@ -9,6 +9,7 @@ layout = "profile" # <--- 注意它的位置！它和theme平级。
 # --- 输出格式配置 (完整版) ---
 # 明确告诉 Hugo，哪些类型的页面需要生成哪些格式的文件
 [outputs]
+  search = ["json"]
   home = ["HTML", "RSS", "JSON"] # 首页：用于主页、搜索和RSS订阅
   page = ["HTML"]               # 普通文章页：只需要HTML
   section = ["HTML", "RSS"]     # 分类列表页 (如/神殿/): 需要HTML和该分类的RSS
