@@ -235,6 +235,18 @@
             }).catch(e => console.error('Waline 初始化失败:', e));
         }
     });
+    document.addEventListener("DOMContentLoaded", function () {
+    fetch("/index.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Data loaded:", data);
+            // 使用 data 初始化搜索功能或其他逻辑
+        })
+        .catch(error => {
+            console.error("Error loading data:", error);
+        });
+});
+
 </script><div id="chat-bubble">
     <p id="chat-bubble-text">你好呀！点我试试？</p>
 </div><script src="/js/dynamic_title.js"></script>
