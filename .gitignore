@@ -1,5 +1,5 @@
 # Hugo generated files 这个文件告诉Git：“上面列出的这些文件夹和文件，永远不要管它们。”
-/public/
+# /public/
 /resources/
 
 # Python script generated content
