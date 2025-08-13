@@ -1,0 +1,156 @@
+/* custom.css (合并与修正后的最终版本) */
+/* 你应该将这些代码完整地复制并覆盖到 assets/css/extended/custom.css 文件中 */
+
+/* --- 1. 全局主题样式 (无变化) --- */
+[data-theme="dark"] {
+    --primary-color: #c7b1ff;
+    --secondary-color: #f2f2f2;
+    --bg-color: #1a1a2e;
+    --card-bg-color: rgba(22, 22, 40, 0.7);
+    --nav-bg-color: rgba(26, 26, 46, 0.85);
+    --nav-border-color: rgba(137, 104, 205, 0.3);
+    --code-bg-color: #2e2e4d;
+    --border-color: rgba(137, 104, 205, 0.2);
+}
+
+.nav, .footer {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.post-entry {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.post-entry:hover {
+    border-color: var(--primary-color);
+}
+
+
+/* 
+ * --- 2. 按钮样式 (关键修正部分) --- 
+ * 这里我们将按钮的样式从“辉光”改为了“琉璃”，以匹配聊天气泡的质感
+ */
+.button, .post-tags a {
+    /* 核心修改：使用半透明背景和背景模糊滤镜 */
+    background: linear-gradient(135deg, rgba(137, 104, 205, 0.25), rgba(87, 74, 226, 0.25));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* 核心修改：使用更微妙的边框和阴影，而不是发光 */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    /* 保持原有的圆角、过渡等效果 */
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    
+    /* 文字颜色使用主题变量，而不是强制白色，以保证可读性 */
+    color: var(--primary-color, #c7b1ff) !important;
+}
+
+.button:hover, .post-tags a:hover {
+    /* 悬停时，稍微加深背景并增强阴影，而不是增强辉光 */
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(137, 104, 205, 0.4), rgba(87, 74, 226, 0.4));
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* --- 3. 聊天气泡样式 (无变化) --- */
+#chat-bubble {
+    position: fixed;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%); 
+    z-index: 1000;
+    user-select: none;
+    -webkit-user-select: none;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 25px;
+    box-shadow:
+       0 0 10px rgba(180, 200, 255, 0.2),
+       0 0 25px rgba(180, 200, 255, 0.15),
+       0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, bottom 0.3s ease, left 0.3s ease;
+}
+
+#chat-bubble::before {
+    content: var(--bubble-emoji, '🌱');
+    margin-right: 10px;
+    font-size: 1.3em;
+    line-height: 1; 
+}
+
+#chat-bubble:hover {
+    transform: translateY(-50%) translateX(5px) scale(1.05); 
+    box-shadow: 0 8px 20px rgba(118, 75, 162, 0.5);
+}
+
+#chat-bubble:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+#chat-bubble p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    #chat-bubble {
+        left: 50%;
+        top: auto;
+        bottom: 30px;
+        transform: translateX(-50%);
+    }
+
+    #chat-bubble:hover {
+        transform: translateX(-50%) translateY(-5px) scale(1.05);
+    }
+
+    #chat-bubble:active {
+        transform: translateX(-50%) scale(0.95);
+    }
+}
+
+/* --- 4. 全站标题颜色统一方案 (终极诊断版) --- */  
+/*  
+ * 根据你的关键发现，我们绕过 CSS 变量，  
+ * 直接使用颜色的 HEX 值进行测试，以确认问题是否出在变量传递上。  
+ */  
+
+/* 规则一：主页大标题 */  
+.profile h1 {  
+    color: #c7b1ff !important; /* 直接使用颜色值 */  
+}  
+
+/* 规则二：主页文章列表标题 */  
+.post-entry .entry-title {  
+    color: #c7b1ff !important; /* 直接使用颜色值 */  
+}  
+
+/* 规则三：文章内部所有标题 */  
+.post-content h1,  
+.post-content h2,  
+.post-content h3,  
+.post-content h4,  
+.post-content h5,  
+.post-content h6 {  
+    color: #c7b1ff !important; /* 直接使用颜色值 */  
+}  

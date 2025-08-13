@@ -1,7 +1,7 @@
 {{- /* --- 自定义脚本开始 --- */}}
 
 {{- /* 1. 您的动态标题脚本 */}}
-<script src="/js/dynamic_title.js"></script>
+
 
 {{- /* 1. Waline 评论脚本 (只有在文章页等需要评论的地方加载) */ -}}
 {{- if .IsPage }}
@@ -38,6 +38,23 @@
     <p id="chat-bubble-text">你好呀！点我试试？</p>
 </div>
 
-{{- /* 3. 直接注入我们自己的 JS 文件 (代替hugo.toml的配置) */ -}}
-<script src="{{ "js/dynamic_title.js" | relURL }}"></script>
-<script src="{{ "js/chat-bubble.js" | relURL }}"></script>
+{{- /* 模块二：加载脚本的诊断过程 (已修正语法) */ -}}  
+
+{{- /* 探针 #1: 确认诊断开始 */ -}}  
+{{ warnf "--- [JS诊断开始] ---" }}  
+
+{{- /* 关键步骤：尝试获取 JS 文件资源 */ -}}  
+{{ $customJS := resources.Get "js/extended/custom-scripts.js" }}  
+
+{{- /* 探针 #2: 检查获取到的资源是什么 */ -}}  
+{{ warnf "[诊断] resources.Get 的结果是: %v" $customJS }}  
+
+{{- /* 这是最终的判断逻辑 */ -}}  
+{{ if $customJS }}  
+    {{- /* 如果 $customJS 不是空的，就执行这里 */ -}}  
+    {{ warnf "[诊断] 结果: 成功。准备渲染 script 标签。" }}  
+    <script src="{{ $customJS.RelPermalink }}" defer></script>  
+{{ else }}  
+    {{- /* 如果 $customJS 是空的，就执行这里 */ -}}  
+    {{ warnf "[诊断] 结果: 失败！JS 文件未找到，script 标签被跳过！请检查 assets 目录下的文件路径。" }}  
+{{ end }}  
