@@ -2,11 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>化学 on lingming的漂流瓶</title>
-    <link>https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/</link>
+    <link>http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/</link>
     <description>Recent content in 化学 on lingming的漂流瓶</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="https://lingming.art/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/002-%E6%8A%80%E8%83%BD%E5%BA%93/%E9%AB%98%E8%80%83%E7%9F%A5%E8%AF%86/%E5%8C%96%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

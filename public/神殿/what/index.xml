@@ -2,20 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>WHAT on lingming的漂流瓶</title>
-    <link>https://lingming.art/%E7%A5%9E%E6%AE%BF/what/</link>
+    <link>http://localhost:1313/%E7%A5%9E%E6%AE%BF/what/</link>
     <description>Recent content in WHAT on lingming的漂流瓶</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 08 Aug 2025 10:32:22 +0000</lastBuildDate>
-    <atom:link href="https://lingming.art/%E7%A5%9E%E6%AE%BF/what/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/%E7%A5%9E%E6%AE%BF/what/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>道德</title>
-      <link>https://lingming.art/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</link>
+      <link>http://localhost:1313/%E7%A5%9E%E6%AE%BF/what/%E4%BD%95%E8%B0%93%E9%81%93%E5%BE%B7/</link>
       <pubDate>Fri, 08 Aug 2025 10:32:22 +0000</pubDate>
-      <guid>https://lingming.art/%E7%A5%9E%E6%AE%BF/what/%E9%81%93%E5%BE%B7/</guid>
+      <guid>http://localhost:1313/%E7%A5%9E%E6%AE%BF/what/%E4%BD%95%E8%B0%93%E9%81%93%E5%BE%B7/</guid>
       <description>&lt;h1 id=&#34;道德ethics&#34;&gt;&lt;strong&gt;道德（Ethics）&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;核心定义：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;道德的本质是&lt;strong&gt;寻求共赢（Positive-Sum/Win-Win）&lt;/strong&gt;。它是在“延续生命奇迹”这一终极价值（见公理一）的指引下，为了实现“体验至上”（见公理二）这一动机，而形成的一种&lt;strong&gt;最大化生命系统整体利益&lt;/strong&gt;的智慧与实践。&lt;/p&gt;
+&lt;h3 id=&#34;我认为道德的本质是寻求共赢positive-sumwin-win&#34;&gt;我认为道德的本质是&lt;strong&gt;寻求共赢（Positive-Sum/Win-Win）&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;它是在“延续生命奇迹”这一终极价值（见公理一）的指引下，为了实现“体验至上”（见公理二）这一动机，而形成的一种&lt;strong&gt;生命系统整体利益最大化&lt;/strong&gt;的智慧与实践。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;基本原则：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -48,8 +49,7 @@
 &lt;li&gt;&lt;strong&gt;妥协与合作&lt;/strong&gt;：在无法完美时，本着“共赢”的最终目标进行合作与妥协，达成一个对系统整体最有利的动态均衡。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;结论：&lt;/strong&gt; 在LingMing的小世界里，道德不是一套僵化的规则，而是一种动态的、理性的、以“共赢”为指针的生存智慧。它根植于对生命偶然性的敬畏，服务于创造美好体验的终极追求。&lt;/p&gt;</description>
+&lt;/ol&gt;</description>
     </item>
   </channel>
 </rss>
