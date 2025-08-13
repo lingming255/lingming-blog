@@ -1,3 +1,6 @@
 ---
-title: "WHAT"
+draft: false
+hidemeta: true
+showtoc: false
+title: What
 ---

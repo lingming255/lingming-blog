@@ -119,6 +119,40 @@ def sync_notes(source_dir):
                 print(f"  [清理] 已删除空文件夹: {dir_path}")
             
     # 【创建中间页】
+    print("\n步骤4/4: 正在创建缺失的导航页 (_index.md)...")
+    created_pages_count = 0
+    for root, dirs, files in os.walk(target_dir):
+        if root == target_dir:
+            continue
+
+        has_content = any(f.endswith('.md') and f != '_index.md' for f in files) or dirs
+        index_path = os.path.join(root, '_index.md')
+        
+        if has_content and not os.path.exists(index_path):
+            dir_name = os.path.basename(root)
+            title = dir_name.replace('-', ' ').replace('_', ' ').title()
+            
+            index_post = frontmatter.Post(content="")
+            index_post['title'] = title
+            index_post['draft'] = False
+            index_post['hidemeta'] = True
+            index_post['showtoc'] = False
+            
+            try:
+                # --- BUG 修复点 ---
+                # 1. 使用 frontmatter.dumps() 将 post 对象转换为一个完整的字符串
+                content_to_write = frontmatter.dumps(index_post)
+                # 2. 将这个字符串写入文件
+                with open(index_path, 'w', encoding='utf-8') as f:
+                    f.write(content_to_write)
+                # --- 修复结束 ---
+                
+                print(f"  [创建] 已生成导航页: {index_path}")
+                created_pages_count += 1
+            except Exception as e:
+                print(f"  [错误] 创建导航页失败: {index_path}, 信息: {e}")
+
+    print(f"  处理完成，共创建了 {created_pages_count} 个新的导航页。")
 
 
 # --- 4. 程序主入口 ---

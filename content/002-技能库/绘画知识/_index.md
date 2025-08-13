@@ -2,5 +2,5 @@
 draft: false
 hidemeta: true
 showtoc: false
-title: 旅人的痕迹
+title: 绘画知识
 ---
